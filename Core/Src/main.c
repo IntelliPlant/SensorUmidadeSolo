@@ -76,11 +76,6 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	valorh = HAL_ADC_GetValue(hadc);
 	HAL_ADC_Start_IT(&hadc1);
-	for(int i=0; i<TRANSMIT_SIZE-1; i++){
-	      usbbuf[i] = 0;
-	}
-	sprintf(usbbuf, "W%04X-X", valorh);
-	while(CDC_Transmit_FS(usbbuf, 7) == USBD_BUSY);
 }
 /* USER CODE END 0 */
 
